@@ -1,0 +1,107 @@
+@font-face {
+	font-family: 'HelveticaLight';
+	src: url('../assets/fonts/helvetica_light.eot');
+	src: local('вє'), url('../assets/fonts/helvetica_light.woff') format('woff'), url('../assets/fonts/helvetica_light.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'HelveticaRegular';
+	src: url('../assets/fonts/helvetica_regular.eot');
+	src: local('вє'), url('../assets/fonts/helvetica_regular.woff') format('woff'), url('../assets/fonts/helvetica_regular.ttf') format('truetype') ;
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'HelveticaBold';
+	src: url('../assets/fonts/helvetica_bold.eot');
+	src: local('вє'), url('../assets/fonts/helvetica_bold.woff') format('woff'), url('../assets/fonts/helvetica_bold.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: HelveticaLight;
+    color: white;
+}
+
+.container {
+    height: inherit;
+    max-width: 1230px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+.wrapper {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    min-height: 100vh;
+    overflow: hidden;
+    background: rgb(97, 23, 23);
+
+}
+.header {
+    &__menu {
+        margin: 60px 0;
+    }
+
+}
+
+.socials {
+
+    &__inst {
+        display: block;
+        width: 26px;
+        height: 26px;
+        background: url('./assets/img/instIcon.svg') no-repeat;
+    }
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.nav {
+    &__list {
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: space-between;
+        font-size: 1.6rem;
+    }
+}
+
+.header {
+    &__intro {
+    margin-top: 30vh;
+    }
+    &__title {
+        font-family: HelveticaRegular;
+        font-size: calc(20px + 30 * (100vw / 1230));
+        line-height: 1.5;
+        letter-spacing: 2px;
+    }
+    &__subtitle {
+        margin-top: 20px;
+        font-family: HelveticaLight;
+        font-size: calc(10px + 10 * (100vw / 1230));
+        text-transform: uppercase;
+        letter-spacing: 13px;
+    }
+}
+
+.footer {
+    margin: 40px 0;
+
+    &__container {
+        display: grid;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}
+

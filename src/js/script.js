@@ -1,7 +1,5 @@
-import '../css/block.scss';
-import '../css/main.scss';
+import '../scss/reset.scss';
+import '../scss/main.scss';
+import '../scss/portfolio.scss';
+import '../scss/variables.scss';
 
-
-function hello () {
-    console.log('hello')
-}

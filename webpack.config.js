@@ -1,52 +1,69 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const loader = require('sass-loader');
 
-const cssLoaders = extra => {
-    const loader = [
-        {loader: MiniCssExtractPlugin.loader,
-            options: {},
-        }, 'css-loader'
-    ]
-
-    if (extra) {
-        loader.push(extra)
-    }
-
-    return loader
-}
 
 module.exports = {
     mode: 'development',
     entry: './src/js/script.js',
     output: {
-       filename: 'bundle.js',
-       path: path.resolve(__dirname, 'dist')
+        filename: './js/bundle.js',
+        path: path.resolve(__dirname, 'dist')
     },
     devServer: {
         port: 7200
     },
     plugins: [
         new HTMLWebpackPlugin({
-            template: './src/index.html'
+            template: './src/pages/main.html'
         }),
-        new MiniCssExtractPlugin({
-            filename: 'bundle.css'
+        new CleanWebpackPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: path.resolve(__dirname, './src/assets'), to: path.resolve(__dirname, './dist/assets') }
+            ]
         }),
-     
-        new CleanWebpackPlugin()
+        new MiniCssExtractPlugin()
     ],
     module: {
         rules: [
             {
-                test: /\.css$/i,
-                use: cssLoaders()
-              },
-              {
-                test: /\.scss$/i,
-                use: cssLoaders('sass-loader')
-              }
+                test: /\.scss$/,
+                use: [
+                    { loader: MiniCssExtractPlugin.loader },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            url: false
+                        }
+                    },
+                    { loader: 'sass-loader' }
+                ]
+            },
+            {
+                test: /\.(woff|eot|ttf)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: `./fonts/[name].[ext]`
+                    },
+                }]
+            },
+            {
+                test: /\.(jpeg|svg|gif|jpg)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: `./img/[name].[ext]`
+                    },
+                }]
+            },
+
+
         ]
-    }
+    },
+    // watch: true
 }
