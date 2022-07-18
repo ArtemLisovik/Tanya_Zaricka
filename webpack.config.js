@@ -19,11 +19,19 @@ module.exports = {
     plugins: [
         new HTMLWebpackPlugin({
             template: './src/pages/main.html',
-            filename: 'main.html'
+            filename: './pages/main.html'
         }),
         new HTMLWebpackPlugin({
-            filename: 'portfolio.html',
+            filename: './pages/portfolio.html',
             template: './src/pages/portfolio.html'
+        }),
+        new HTMLWebpackPlugin({
+            filename: './pages/about.html',
+            template: './src/pages/about.html'
+        }),
+        new HTMLWebpackPlugin({
+            filename: './pages/contacts.html',
+            template: './src/pages/contacts.html'
         }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
