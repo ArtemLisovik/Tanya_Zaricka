@@ -18,7 +18,12 @@ module.exports = {
     },
     plugins: [
         new HTMLWebpackPlugin({
-            template: './src/pages/main.html'
+            template: './src/pages/main.html',
+            filename: 'main.html'
+        }),
+        new HTMLWebpackPlugin({
+            filename: 'portfolio.html',
+            template: './src/pages/portfolio.html'
         }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
@@ -65,5 +70,5 @@ module.exports = {
 
         ]
     },
-    // watch: true
+    watch: true
 }

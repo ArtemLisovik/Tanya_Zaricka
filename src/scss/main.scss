@@ -1,23 +1,23 @@
 @font-face {
 	font-family: 'HelveticaLight';
-	src: url('../assets/fonts/helvetica_light.eot');
-	src: local('вє'), url('../assets/fonts/helvetica_light.woff') format('woff'), url('../assets/fonts/helvetica_light.ttf') format('truetype');
+	src: url('./assets/fonts/helvetica_light.eot');
+	src: local('вє'), url('./assets/fonts/helvetica_light.woff') format('woff'), url('./assets/fonts/helvetica_light.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'HelveticaRegular';
-	src: url('../assets/fonts/helvetica_regular.eot');
-	src: local('вє'), url('../assets/fonts/helvetica_regular.woff') format('woff'), url('../assets/fonts/helvetica_regular.ttf') format('truetype') ;
+	src: url('./assets/fonts/helvetica_regular.eot');
+	src: local('вє'), url('./assets/fonts/helvetica_regular.woff') format('woff'), url('./assets/fonts/helvetica_regular.ttf') format('truetype') ;
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'HelveticaBold';
-	src: url('../assets/fonts/helvetica_bold.eot');
-	src: local('вє'), url('../assets/fonts/helvetica_bold.woff') format('woff'), url('../assets/fonts/helvetica_bold.ttf') format('truetype');
+	src: url('./assets/fonts/helvetica_bold.eot');
+	src: local('вє'), url('./assets/fonts/helvetica_bold.woff') format('woff'), url('./assets/fonts/helvetica_bold.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -38,6 +38,7 @@ body {
     margin: 0 auto;
 }
 .wrapper {
+    position: relative;
     display: grid;
     grid-template-rows: 1fr auto;
     min-height: 100vh;
@@ -46,6 +47,10 @@ body {
 
 }
 .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     &__menu {
         margin: 60px 0;
     }
@@ -73,18 +78,16 @@ body {
         grid-auto-flow: column;
         justify-content: space-between;
         font-size: 1.6rem;
+        font-family: HelveticaLight;
     }
 }
 
-.header {
-    &__intro {
-    margin-top: 30vh;
-    }
+.intro {
+    margin-top: 35vh;
     &__title {
         font-family: HelveticaRegular;
         font-size: calc(20px + 30 * (100vw / 1230));
         line-height: 1.5;
-        letter-spacing: 2px;
     }
     &__subtitle {
         margin-top: 20px;
