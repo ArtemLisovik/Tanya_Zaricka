@@ -1,0 +1,14 @@
+.portfolio__title {
+    margin: 25vh 0 0 2vw;
+
+}
+
+.portfolio__categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: auto;
+}
+
+.portaits__inner {
+    background: url('../assets/img/Portraits.jpg') no-repeat;
+}

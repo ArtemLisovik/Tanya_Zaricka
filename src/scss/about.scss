@@ -1,0 +1,123 @@
+.about {
+    margin-top: 25vh;
+
+    &__container {
+        height: inherit;
+        display: grid;
+        justify-content: center;
+    }
+
+    &__biography {
+        max-width: 500px;
+        text-align: center;
+        padding: 2rem;
+        min-height: 500px;
+
+        &-title {
+            margin-bottom: 6rem;
+            font-family: 'HelveticaBold';
+            font-size: 6rem;
+
+            opacity: 0;
+            transform: translateY(3rem);
+            animation: anim 1.5s forwards ease;
+        }
+
+        &-text {    
+            line-height: 2rem;
+            font-size: 1.6rem;
+
+           p {
+            margin-bottom: 2rem;
+
+            &:nth-child(1) {
+
+                opacity: 0;
+                transform: translateY(3rem);
+                animation: anim 1.5s forwards ease .5s;
+            }
+
+            &:nth-child(2) {
+
+                opacity: 0;
+                transform: translateY(3rem);
+                animation: anim 1.5s forwards ease 1s;
+            }
+           }
+
+            
+
+        }
+    }
+}
+
+.slider {
+    padding: 2rem;
+    min-height: 500px;
+    display: grid;
+
+    &__wrapper {
+        max-width: 500px;
+        height: inherit;
+        position: relative;
+
+        opacity: 0;
+        animation: fade 1s forwards ease 1.5s;
+    }
+
+    &__photo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+    }
+
+    &__arrow {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);    
+        z-index: 5;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+
+        opacity: 0;
+        animation: fade 2s forwards ease 2s;
+
+        &:first-child {
+            left: -2rem;
+        }
+        &:last-child {
+            right: -2rem;
+        }
+    }
+}
+
+
+@media (min-width: 90rem) {
+    .about {
+
+        &__container {
+            display: grid;
+
+            align-items: center;
+            grid-auto-flow: column;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    .slider {
+        display: grid;
+        grid-template: 1fr / 1fr [slider] 3fr 1fr;
+    
+        &__wrapper {
+            height: inherit;
+            position: relative;
+            grid-area: 1 / slider;
+        }
+    }
+}

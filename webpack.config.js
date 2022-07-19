@@ -3,7 +3,6 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const loader = require('sass-loader');
 
 
 module.exports = {
@@ -39,7 +38,9 @@ module.exports = {
                 { from: path.resolve(__dirname, './src/assets'), to: path.resolve(__dirname, './dist/assets') }
             ]
         }),
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin({
+            filename: './css/[name].css'
+        })
     ],
     module: {
         rules: [
@@ -56,24 +57,24 @@ module.exports = {
                     { loader: 'sass-loader' }
                 ]
             },
-            {
-                test: /\.(woff|eot|ttf)$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        name: `./fonts/[name].[ext]`
-                    },
-                }]
-            },
-            {
-                test: /\.(jpeg|svg|gif|jpg)$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        name: `./img/[name].[ext]`
-                    },
-                }]
-            },
+            // {
+            //     test: /\.(woff|eot|ttf)$/,
+            //     use: [{
+            //         loader: 'file-loader',
+            //         options: {
+            //             name: `./fonts/[name].[ext]`
+            //         },
+            //     }]
+            // },
+            // {
+            //     test: /\.(jpeg|svg|gif|jpg)$/,
+            //     use: [{
+            //         loader: 'file-loader',
+            //         options: {
+            //             name: `./img/[name].[ext]`
+            //         },
+            //     }]
+            // },
 
 
         ]
