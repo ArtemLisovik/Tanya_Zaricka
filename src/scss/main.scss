@@ -29,8 +29,7 @@ body {
 
 .container {
     height: inherit;
-    max-width: 1230px;
-    padding: 0 15px;
+    width: 92vw;
     margin: 0 auto;
 }
 .wrapper {
@@ -52,7 +51,7 @@ body {
     left: 0;
     width: 100%;
     &__menu {
-        margin: 60px 0;
+        margin: 60px 0 0 0;
     }
 
 }
@@ -77,18 +76,19 @@ body {
         display: grid;
         grid-auto-flow: column;
         justify-content: space-between;
-        font-size: 1.6rem;
+        font-size: clamp(16px, 1.111vw, 48px);
         font-family: HelveticaLight;
     } 
 }
 
 .title {
     font-family: HelveticaRegular;
-    font-size: calc(20px + 30 * (100vw / 1230));
+    font-size: clamp(30px, 4.166vw, 100px);
     line-height: 1.5;
-
     opacity: 0;
     animation: anim 1.5s forwards ease .5s;
+    margin-bottom: 9vh;
+    padding-left: 14px;
 }
 
 .intro {
@@ -115,3 +115,8 @@ body {
     }
 }
 
+// @media (min-width: 2000px) {
+//     .container {
+//         max-width: 1800px;
+//     }
+// }
